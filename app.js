@@ -8,7 +8,7 @@ var User = require("./models/user");
 var localStrategy = require("passport-local");
 var passoportLocalMongoose = require("passport-local-mongoose");
 
-mongoose.connect("mongodb://localhost:27017/rico_logistics", {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect("mongodb+srv://anoop:Letmein01@cluster0.xhjoy.mongodb.net/consumableManagement?retryWrites=true&w=majority", {useNewUrlParser: true, useUnifiedTopology: true});
 
 app.use(require("express-session")({
 	secret: "Anoop is my name",
@@ -226,7 +226,7 @@ app.get("/logout", function(req,res){
 	res.redirect("/");
 });
 
-app.listen(3000,process.env.IP, function(){
+app.listen(process.env.PORT,process.env.IP, function(){
 	console.log("consumable management server has started........" );
 });
 
