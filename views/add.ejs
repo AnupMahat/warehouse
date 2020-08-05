@@ -1,0 +1,33 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="row showbox">
+		<center><h3 class="ours3" style="color:#6d6d6d">Add stock for:</h3><h2 class="ours2" style="text-transform:uppercase"><%= stock.name%></h2></center>
+		<div style="width:80%; margin: 25px auto">
+			<form action="/stocks/<%=stock._id %>/add?_method=PUT" method="POST">
+				<div class = "form-group">
+					<label class="showlbl">Item:</label>
+					<input class= "form-control" type = "text" name = "name" placeholder="Stock Name" value="<%=stock.name%>" required disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">AVL Quantity:</label>
+					<input class= "form-control" type = "number" name = "qty" placeholder="Quantity" value=<%=stock.qty%> required disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Ordered Quantity:</label>
+					<input class= "form-control" type = "number" name = "ordered" placeholder="ordered qty" value=<%=stock.ordered%> required disabled disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Add QTY:</label>
+					<input class= "form-control" type = "number" name = "addqty" placeholder="Add QTY" required>
+				</div>
+				
+				<button class="btn btn-lg btn-success btn-block ourbtn">Add</button>
+			</form>
+			<br>
+			<center><a href ="/stocks">Back to Control Panel</a></center>
+		</div>
+	</div>
+</div>
+
+<%- include ("partials/footer") %>

@@ -1,0 +1,61 @@
+<%- include("partials/header") %>
+
+<div class="col-lg-2 col-md-2 col-sm-3 col-xs-12">
+
+    <ul class="nav nav-pills nav-stacked" style="border-right:1px solid black">
+        <!-- <li class="nav-header"></li> -->
+		<img src="https://scontent.fsyd3-1.fna.fbcdn.net/v/t1.15752-9/98180221_1674372322710458_1873528583499022336_n.png?_nc_cat=100&_nc_sid=b96e70&_nc_ohc=E-d1LnPS1QAAX-_J8AN&_nc_ht=scontent.fsyd3-1.fna&oh=578db1102b5e2dca192690e1e7ae9522&oe=5F1097D7" alt="logo" class="landingimg"><br><br>
+        <li><a href="/stocks" class="navlink"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>&nbsp;&nbsp;Home</a></li>
+		<li><a href="/stocks" class="navlink"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;&nbsp;My Profile</a></li>
+		<li><a href="/stocks" class="navlink"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span>&nbsp;&nbsp;Settings</a></li>
+		<li><a href="/logout" class="navlink"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>&nbsp;&nbsp;Logout</a></li>
+		<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    </ul>
+</div><!-- /span-3 -->
+<div class="col-lg-10 col-md-10 col-sm-9 col-xs-12">
+	
+    <!-- RIGHT/MAIN SECTION -->
+	<table class="ourtbl">
+		<th><h3 class="ours3" style="text-transform:uppercase; color:#6d6d6d">My Inventory</h3></th>
+		<th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+		
+		<th><a class="btn btn-primary btn-md nav-btn" href = "/stocks/new">Add New Item</a></th>
+	</table>
+	<hr class="hrstyle">
+	<p>
+		<form action="/stocks" method="GET" class="form-inline">
+			<div class = "form-group">
+				<input type="text" name="search" placeholder="Search Stock.." autocomplete="off" class="form-control">
+				<input type="submit" value="Search" class="btn btn-default">
+			</div>	
+	    </form>
+	</p>
+	<div class="container-flex">
+	<br><br>
+		<div>
+			<table class="table ourtbl">
+				<thead>
+				   <tr id="head">
+					  <th>ITEM</th><th>QTY</th><th>CRITICAL LVL</th><th>ORDERED QTY</th>
+				   </tr>
+				</thead>
+				<tbody>
+					<% stocks.forEach(function(stock){ %>
+					<tr>
+						<td> <a href="/stocks/<%-stock._id %>"><%=stock.name %> </a></td>
+						<td id="stockqty"> <%= stock.qty%> </td>
+						<td id="stockcrit"> <%= stock.critical%> </td>
+						<td> <%=stock.ordered %> </td>
+						<td> <a class="btn btn btn-success hide" href="#">Reorder</a> </td>
+					</tr>
+					<% }); %>
+				</tbody>
+			</table>
+		</div>
+</div>
+</div>
+
+
+<%- include("partials/footer") %>
+
+

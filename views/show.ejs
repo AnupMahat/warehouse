@@ -1,0 +1,46 @@
+<%- include("partials/header") %>
+
+<div class="container">
+	<div class="row showbox">
+		<center><h3 class="ours3" style="color:#6d6d6d">Stock item:</h3><h2 class="ours2" style="text-transform:uppercase"><%= stock.name%></h2></center>
+		<div style="width:80%; margin: 25px auto">
+		
+				<div class = "form-group">
+					<label class="showlbl">Item:</label>
+					<input class= "form-control" type = "text" name = "name" placeholder="Stock Name" value="<%=stock.name%>" required disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Quantity:</label>
+					<input class= "form-control" type = "number" name = "qty" placeholder="Quantity" value=<%=stock.qty%> required disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Critical level:</label>
+					<input class= "form-control" type = "number" name = "critical" placeholder="Critical Level" value=<%=stock.critical%> required disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Ordered Quantity:</label>
+					<input class= "form-control" type = "number" name = "ordered" placeholder="ordered qty" value=<%=stock.ordered%> required disabled disabled>
+				</div>
+				<div class = "form-group">
+					<label class="showlbl">Notes:</label>
+					<input class= "form-control" type = "text" name = "description" placeholder="description" value="<%=stock.description%>" required disabled>
+				</div>
+					<div class = "form-group">
+						<a class="btn btn-lg btn-success btn-block ourbtn" href="/stocks/<%= stock.id %>/add" >+ Add Stock</a>
+					</div>
+					<div class = "form-group">
+						<a class="btn btn-lg btn-primary btn-block ourbtn" href="/stocks/<%= stock.id %>/reduce" >- Consume Stock</a>
+					</div>
+					<div class = "form-group">
+						<a class="btn btn-lg btn-info btn-block ourbtn" href="/stocks/<%= stock.id %>/edit" >Edit</a>
+					</div>
+						<form action="/stocks/<%=stock._id%>?_method=DELETE" method="POST">
+							<button class="btn btn-lg btn-danger btn-block ourbtn">Delete</button>
+						</form>
+			<br>
+			<center><a href ="/stocks">Back to Control Panel</a></center>
+		</div>
+	</div>
+</div>
+
+<%- include ("partials/footer") %>
