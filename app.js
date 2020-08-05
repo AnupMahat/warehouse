@@ -48,7 +48,7 @@ var stock = mongoose.model("stock", stockSchema);
 // 	if(err){
 // 		console.log(err);
 // 	}
-// 	passport.authenticate("local")
+// 	passport.authenticate("local");
 // });
 
 app.get("/", function(req,res){
